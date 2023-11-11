@@ -55,6 +55,8 @@ Lagrangian graph Neural Networks is very universal as it is able to learn very i
 
 -Learning/Objective function: include constraints and LGNN methodologies to foreshadow the behavior of the dynamics and how it would be on a grpah such as one with LGNN. 
 
+![Image](./ Loss Function Code.png)
+
 -How do they ensure the constraint is being satisfied: we check for this by seeing how the LGNN identifies the dynamics of the fluids or object by using methodologies of Lagrangian. 
 
 -Smoothness or divergence-free: by using the same techniques as with testing for smoothness/divergence free of other principles we use techniques that will show the smoothness of the networks and its foreshadowed results. we check for divergence by seeing the foreshadowed results of the physical system and comparing it with proven divergence free networks. 
@@ -107,6 +109,5 @@ Another input could be the model parameters, "params" which has a bunch of diffe
 Outputs:
 
 The graphs with the attributes and characteristics. There are neural network architectures included in the code which will generate the graph with the nodes and edges as mentioned in inputs, which are all produces after training. 
-
 
 
