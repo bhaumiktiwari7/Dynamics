@@ -2,11 +2,16 @@
 
 Content
 
-1. Intro to Dynamics with Lagrangian Graph Neural Network
-  1.1 Summary of the Paper
-  1.2 Training & Learning Functions
-  1.3 Examples of LGNN Implementation & Outputs
-  1.4 Inputs & Outputs of the Code
+1. [Intro to Dynamics with Lagrangian Graph Neural Network](#1-intro-to-the-paper)
+
+  1.1 [Summary of the Paper]()
+ 
+  1.2 [Training & Learning Functions]()
+  
+  1.3 [Examples of LGNN Implementation & Outputs]()
+  
+  1.4 [Inputs & Outputs of the Code]()
+
 -----
 
 ## 1. Intro to the Paper
@@ -45,7 +50,6 @@ Lagrangian graph Neural Networks is very universal as it is able to learn very i
 ### 1.2 Training and Learning Functions
 
 -Training function: update the parameters of LGNN and design it for the physical system to test for the effectivness in demonstrating and graphing dynamics
-
 
 
 -Learning/Objective function: include constraints and LGNN methodologies to foreshadow the behavior of the dynamics and how it would be on a grpah such as one with LGNN. 
