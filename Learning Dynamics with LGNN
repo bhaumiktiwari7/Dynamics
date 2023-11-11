@@ -46,6 +46,8 @@ Lagrangian graph Neural Networks is very universal as it is able to learn very i
 
 -Training function: update the parameters of LGNN and design it for the physical system to test for the effectivness in demonstrating and graphing dynamics
 
+
+
 -Learning/Objective function: include constraints and LGNN methodologies to foreshadow the behavior of the dynamics and how it would be on a grpah such as one with LGNN. 
 
 -How do they ensure the constraint is being satisfied: we check for this by seeing how the LGNN identifies the dynamics of the fluids or object by using methodologies of Lagrangian. 
