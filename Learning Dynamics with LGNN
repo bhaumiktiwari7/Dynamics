@@ -78,6 +78,8 @@ Gives different examples, specifcally with drag force and how it applies to all 
 
 Physical systems such as 8-link system, 10-link system, and tensegrity structure are using to visualize the physical systems and models that are already trained.
 
+![Image](./Physical-system-simulation-results.png)
+
 Different sizes are used for LGNN, in order to get the fully connected feed to apply to embedding and passing. Linear layer and hidden layer. In order to embed the nodes they often use Linear transformations which helps effectively integrate the nodes. 
 
 The systems and networks are trained very specifically, where most often, 75% of the data is for training purposes while 25% is for validating the data. 
