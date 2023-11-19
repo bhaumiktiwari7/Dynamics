@@ -4,14 +4,14 @@ Content
 
 1. [Intro to Dynamics with Lagrangian Graph Neural Network](#1-intro-to-the-paper)
 
-  1.1 [Summary of the Paper]()
+    1.1 [Summary of the Paper]()
  
-  1.2 [Training & Learning Functions]()
+    1.2 [Training & Learning Functions]()
   
-  1.3 [Examples of LGNN Implementation & Outputs]() **Visualizations**
+    1.3 [Examples of LGNN Implementation & Outputs]() **Visualizations**
   
-  1.4 [Inputs & Outputs of the Code]()
-
+    1.4 [Inputs & Outputs of the Code]()
+  
 -----
 
 ## 1. Intro to the Paper
