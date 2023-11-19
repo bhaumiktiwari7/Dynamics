@@ -1,6 +1,7 @@
 # Dynamics with LGNN Paper
 
 Paper: https://arxiv.org/pdf/2209.11588.pdf
+
 Code: https://github.com/M3RG-IITD/rigid_body_dynamics_graph.git
 
 Content
