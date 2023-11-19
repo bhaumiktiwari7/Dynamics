@@ -78,7 +78,7 @@ This function encompasses minimizing the difference between predicted and observ
 
 ### 1.3 Example of LGNN Implementation and Outputs
 
-### 1.3a Implementing the Graph Based Neural Network Architecture
+### 1.3.1 Implementing the Graph Based Neural Network Architecture
 
 The code below represents the architecture that is being designed to represent and reflect the dynamics of the physical systems. It helps introduce the concept of LGNN and how this neural network can support in demonstrating dyanmics of the physcial systems.
 
@@ -195,7 +195,7 @@ def cal(params, graph, mpass=1):
     return graph
 ```
 
-### 1.3b Initializing and Training Neural Models
+### 1.3.2 Initializing and Training Neural Models
 
 The below code represents the neural model's file, which includes all functions that help train and initialize the neural network models. It especially shows how we can work with and build neural network models that relate to problems for physical related equations/questions. It models the dynamics of the physical systems and helps show how neural networks can be represented.
 
@@ -347,7 +347,7 @@ def pprint_model(params, Iindent=""):
 
 ```
 
-### 1.3c Data Storage and Loading
+### 1.3.2 Data Storage and Loading
 
 The paper gives another example with a system and demonstrates its kinetic energy  to show the inertia that is put through the rigid segments. goes on to also address the potential energy of the system.
 
