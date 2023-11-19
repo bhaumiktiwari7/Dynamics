@@ -79,7 +79,7 @@ This function encompasses minimizing the difference between predicted and observ
 -Constraints - They are so far limited to very simple physical models and are yet to be able to analyze higher-level neural models.
 
 
-### 2 Example of LGNN Implementation and Outputs
+### 2. Example of LGNN Implementation and Outputs
 
 #### 2.1 Implementing the Graph Based Neural Network Architecture
 
