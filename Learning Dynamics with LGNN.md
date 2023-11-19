@@ -11,8 +11,11 @@ Colab Link: https://colab.research.google.com/drive/1rErUFvWDCJAXMhRg4RABXACigZw
     1.2 [Training & Learning Functions](#12-Training-and-Learning-Functions)
   
     1.3 [Examples of LGNN Implementation & Outputs](#13-Example-of-LGNN-Implementation-and-Outputs) (** Example Code and Visualizations**)
+
            1.3.1 [Implementing the Graph Based Neural Network Architecture](#131-Implementing-the-Graph-Based-Neural-Network-Architecture)
+
            1.3.2 [Initializing and Training Neural Models](#132-Initializing-and-Training-Neural-Models)
+
            1.3.3 [Data Storage and Loading](#133-Data-Storage-and-Loading)
   
     1.4 [Inputs & Outputs of the Code](#14-Inputs-and-Outputs-of-the-Code)
