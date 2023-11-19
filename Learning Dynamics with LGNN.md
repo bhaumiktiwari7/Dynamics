@@ -76,7 +76,26 @@ This function encompasses minimizing the difference between predicted and observ
 ### 1.3 Example of LGNN Implementation & Outputs
 
 
-This code shows the implementation of LGNN as it is demonstrated in the paper. Description of what code does can be found below code. 
+The code below represents the architechture that is being designed to represent and reflect the dynamics of the physical systems. It helps introduce the concept of LGNN and how this neural network can support in demonstrating dyanmics of the physcial systems.
+
+Firstly, the code below introduces the main purpose of what LGNN does, using graph based approach to show the dynamics of the systems. It does this with the "GraphEncodeNet" class which inputs in a graph and helps create a structure to show and reflect the dyanmics of the systems.
+
+Then, we see that throughout the paper LGNN are supposed to learn to embed different elements of the systems like sharp edges, nodes, etc. The code works to accomplish this by having an "embedding_fn" function, which aims to include different needed portions of the graph.
+
+it gives another example with a system and demonstrates its kenetic energy to show the inertia that is put through the rigid segments. goes on to also address the potential energy of the system.
+
+Anyhow, LGNN is a very valuable neural network for computer visualization as it can understand most dynamics that are performed by the physical system, and this neural networks can simulate many applicable structures.
+
+Also, on the above note, this neural networks might be well adversed to fluid dynamics as its structure works to analyze dyanmic movements.
+
+They go on to continue testing various segments using different constraints... ie. (complex system example paragraph.)
+
+Gives different examples, specifcally with drag force and how it applies to all nodes at equal pressure.
+
+This code alligns with the theoretical concepts of LGNN by implementing the graph structures and creating functions to include important features for the graph that can demonstrate the dynamics of the physical systems.
+
+A very important segment of this code is the function that helps create parameters to organize the code, "params", and "forward_pass" are the examples of the functions that support and create parameters for the neural networks. These parameters are also trained and applied when we see the dynamics of the system being applied.
+
 
 ```python
 from functools import partial
@@ -172,9 +191,6 @@ def cal(params, graph, mpass=1):
     return graph
 ```
 
-The code above 
-
-
 The paper gives another example with a system and demonstrates its kinetic energy  to show the inertia that is put through the rigid segments. goes on to also address the potential energy of the system.
 
 Anyhow, LGNN is a very valuable neural network for computer visualization as it can understand most dynamics that are performed by the physical system, and this neural networks can simulate many applicable structures.
@@ -186,6 +202,12 @@ They go on to continue testing various segments using different constraints... i
 Gives different examples, specifcally with drag force and how it applies to all nodes at equal pressure.
 
 Physical systems such as 8-link system, 10-link system, and tensegrity structure are used to visualize the physical systems and models that are already trained.
+
+The code below refers to two functions, the loadfile and savefile. The loadfile function reads data from a specificed file, whereas the savefile function saves that date with the metadata for the file.
+
+The primary function of this code is to effectively story and host data for the molecular dynamics trajectory data which is currently in file format, hence the need for these functions which can read the files.
+
+These functions are very effective at visulizing the molecular dynamics of the systems and simulations especially in Ovito which is what the file format is in. The functions help show information about how many particles, positions, forces, and velocities are present in the system.
 
 ```python
 
@@ -242,8 +264,6 @@ def save_ovito(filename, traj, species=None, lattice=None, length=None, insert_o
                 str_ = f"{j+1}\t" + line + "\n"
                 ofile.write(str_)
 ```
-
-The code above shows us 
 
 These systems help show us the difference in the output/predictions between LGNN, GNS, LGN, and CLNN. As we can see, the LGNN results produce the least amount of energy and rollout error. This shows us that it is quite effective in reducing the errors it makes in simulations.
 
