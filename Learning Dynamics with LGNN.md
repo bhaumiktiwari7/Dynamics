@@ -6,19 +6,19 @@ Colab Link: https://colab.research.google.com/drive/1rErUFvWDCJAXMhRg4RABXACigZw
 
 1. [Intro to Dynamics with Lagrangian Graph Neural Network](#1-intro-to-the-paper)
 
-   1.1 [Summary of the Paper](#11-Summary-of-the-paper)
+    1.1 [Summary of the Paper](#11-Summary-of-the-paper)
  
-   1.2 [Training & Learning Functions](#12-Training-and-Learning-Functions)
+    1.2 [Training & Learning Functions](#12-Training-and-Learning-Functions)
   
-   1.3 [Examples of LGNN Implementation & Outputs](#13-Example-of-LGNN-Implementation-and-Outputs) (** Example Code and Visualizations**)
+2. [Examples of LGNN Implementation & Outputs](#13-Example-of-LGNN-Implementation-and-Outputs) (** Example Code and Visualizations**)
 
-     1.3.1 [Implementing the Graph Based Neural Network Architecture](#131-Implementing-the-Graph-Based-Neural-Network-Architecture)
+     2.1 [Implementing the Graph Based Neural Network Architecture](#131-Implementing-the-Graph-Based-Neural-Network-Architecture)
 
-     1.3.2 [Initializing and Training Neural Models](#132-Initializing-and-Training-Neural-Models)
+     2.2 [Initializing and Training Neural Models](#132-Initializing-and-Training-Neural-Models)
 
-     1.3.3 [Data Storage and Loading](#133-Data-Storage-and-Loading)
+     2.3 [Data Storage and Loading](#133-Data-Storage-and-Loading)
   
-   1.4 [Inputs & Outputs of the Code](#14-Inputs-and-Outputs-of-the-Code)
+3. [Inputs & Outputs of the Code](#14-Inputs-and-Outputs-of-the-Code)
   
 -----
 
@@ -79,9 +79,9 @@ This function encompasses minimizing the difference between predicted and observ
 -Constraints - They are so far limited to very simple physical models and are yet to be able to analyze higher-level neural models.
 
 
-### 1.3 Example of LGNN Implementation and Outputs
+### 2 Example of LGNN Implementation and Outputs
 
-#### 1.3.1 Implementing the Graph Based Neural Network Architecture
+#### 2.1 Implementing the Graph Based Neural Network Architecture
 
 The code below represents the architecture that is being designed to represent and reflect the dynamics of the physical systems. It helps introduce the concept of LGNN and how this neural network can support in demonstrating dyanmics of the physcial systems.
 
@@ -206,7 +206,7 @@ def cal(params, graph, mpass=1):
     return graph
 ```
 
-#### 1.3.2 Initializing and Training Neural Models
+#### 2.2 Initializing and Training Neural Models
 
 The below code represents the neural model's file, which includes all functions that help train and initialize the neural network models. It especially shows how we can work with and build neural network models that relate to problems for physical related equations/questions. It models the dynamics of the physical systems and helps show how neural networks can be represented.
 
@@ -372,7 +372,7 @@ def pprint_model(params, Iindent=""):
 
 ```
 
-#### 1.3.3 Data Storage and Loading
+#### 2.3 Data Storage and Loading
 
 The paper gives another example with a system and demonstrates its kinetic energy  to show the inertia that is put through the rigid segments. goes on to also address the potential energy of the system.
 
