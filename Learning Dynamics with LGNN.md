@@ -10,9 +10,9 @@ Colab Link: https://colab.research.google.com/drive/1rErUFvWDCJAXMhRg4RABXACigZw
  
     1.2 [Training & Learning Functions](#12-Training-and-Learning-Functions)
   
-    1.3 [Examples of LGNN Implementation & Outputs](#13-Example-of-LGNN-Implementation-&-Outputs) **Visualizations**
+    1.3 [Examples of LGNN Implementation & Outputs](#13-Example-of-LGNN-Implementation-and-Outputs) **Visualizations**
   
-    1.4 [Inputs & Outputs of the Code](#14-Inputs-&-Outputs-of-the-Code)
+    1.4 [Inputs & Outputs of the Code](#14-Inputs-and-Outputs-of-the-Code)
   
 -----
 
@@ -73,7 +73,7 @@ This function encompasses minimizing the difference between predicted and observ
 -Constraints - They are so far limited to very simple physical models and are yet to be able to analyze higher-level neural models.
 
 
-### 1.3 Example of LGNN Implementation & Outputs
+### 1.3 Example of LGNN Implementation and Outputs
 
 
 The code below represents the architechture that is being designed to represent and reflect the dynamics of the physical systems. It helps introduce the concept of LGNN and how this neural network can support in demonstrating dyanmics of the physcial systems.
@@ -312,7 +312,7 @@ compelx equations, which however, come with this own errors and constraints that
 To this end, the LGNN is very useful in understanding and comparing the dynamics of complex systems that require neural networks 
 which can work past constraints and errors. 
 
-### 1.4 Inputs & Outputs of the Code
+### 1.4 Inputs and Outputs of the Code
 
 Inputs:
 
