@@ -85,7 +85,7 @@ Gives different examples, specifcally with drag force and how it applies to all 
 
 Physical systems such as 8-link system, 10-link system, and tensegrity structure are using to visualize the physical systems and models that are already trained.
 
-![Image](./Physical-system-simulation-results.png)
+![Image](Physical_system_simulation_results.png)
 
 The implementation involves structuring the neural network architecture around a graph representation. This graph captures the relationships among elements within a dynamic system, with nodes representing entities like particles or components, and edges encoding their interactions or dependencies.
 LGNN's framework involves encoding physical principles or system dynamics into the graph structure, incorporating elements such as 
@@ -97,7 +97,7 @@ network's ability to learn and predict complex system dynamics, enabling it to s
 systems.
 
 Different sizes are used for LGNN, in order to get the fully connected feed to apply to embedding and passing. Linear layer and hidden layer. In order to embed the nodes they often use Linear transformations which helps effectively integrate the nodes. 
-![Image](./predictions-with-LGNN.png)
+![Image](predictions_with_LGNN.png)
 
 The systems and networks are trained very specifically, where most often, 75% of the data is for training purposes while 25% is for 
 validating the data. 
@@ -108,7 +108,7 @@ the "4-link chain and predicted on all the systems" this goes to show how LGNN i
 LGNN was able to identify the percantage error and non zero terms in figure 13, graphs a & b, even though the mass matrix was relatively at 1%. 
 This can be seen in below image as well.
 
-![Image](./mass-matrix-and-node-connection.png)
+![Image](mass_matrix_and_node_connection.png)
 
 Specifics for pages and continuation from first segment above
 
@@ -119,7 +119,7 @@ In order to show the objects change in position and velocity LGNN uses energy an
 info on position and velocity. To represent above, Lagrangian is an example of energy based method. It helps significantly when we are analyzing the systems current position and how the systems develop over time. 
 We can see an example of this below. 
 
-![Image](./energy-testing-with-graphs.png)
+![Image](energy_testing_with_graphs.png)
 
 LGNN can also help create equations that related to position, velocity, motion and more to help show the development of the
 physical systems over time.
