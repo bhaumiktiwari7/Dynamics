@@ -350,21 +350,12 @@ def pprint_model(params, Iindent=""):
 
 ```
 
-### 1.3.2 Data Storage and Loading
+### 1.3.3 Data Storage and Loading
 
 The paper gives another example with a system and demonstrates its kinetic energy  to show the inertia that is put through the rigid segments. goes on to also address the potential energy of the system.
 
 Anyhow, LGNN is a very valuable neural network for computer visualization as it can understand most dynamics that are performed by the physical system, and this neural networks can simulate many applicable structures.
 
-Also, on the above note, this neural networks might be well adversed to fluid dynamics as its structure works to analyze dyanmic movements.
-
-They go on to continue testing various segments using different constraints... ie. (complex system example paragraph.)
-
-Gives different examples, specifcally with drag force and how it applies to all nodes at equal pressure.
-
-Physical systems such as 8-link system, 10-link system, and tensegrity structure are used to visualize the physical systems and models that are already trained.
-
-----
 The code below refers to two functions, the loadfile and savefile. The loadfile function reads data from a specificed file, whereas the savefile function saves that date with the metadata for the file.
 
 The primary function of this code is to effectively store and host data for the molecular dynamics trajectory data which is currently in file format, hence the need for these functions which can read the files.
@@ -426,7 +417,15 @@ def save_ovito(filename, traj, species=None, lattice=None, length=None, insert_o
                 str_ = f"{j+1}\t" + line + "\n"
                 ofile.write(str_)
 ```
+----
 
+Also, on the above note, this neural networks might be well adversed to fluid dynamics as its structure works to analyze dyanmic movements.
+
+They go on to continue testing various segments using different constraints... ie. (complex system example paragraph.)
+
+Gives different examples, specifcally with drag force and how it applies to all nodes at equal pressure.
+
+Physical systems such as 8-link system, 10-link system, and tensegrity structure are used to visualize the physical systems and models that are already trained.
 These systems help show us the difference in the output/predictions between LGNN, GNS, LGN, and CLNN. As we can see, the LGNN results produce the least amount of energy and rollout error. This shows us that it is quite effective in reducing the errors it makes in simulations.
 
 ![Image](Physical_system_simulation_results.png)
