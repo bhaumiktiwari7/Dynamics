@@ -97,7 +97,8 @@ network's ability to learn and predict complex system dynamics, enabling it to s
 systems.
 
 Different sizes are used for LGNN, in order to get the fully connected feed to apply to embedding and passing. Linear layer and hidden layer. In order to embed the nodes they often use Linear transformations which helps effectively integrate the nodes. 
-![Image](predictions_with_LGNN.png)
+
+![Image](predictions_with_lgnn.png)
 
 The systems and networks are trained very specifically, where most often, 75% of the data is for training purposes while 25% is for 
 validating the data. 
