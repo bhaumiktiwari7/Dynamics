@@ -52,7 +52,7 @@ Lagrangian graph Neural Networks is very universal as it is able to learn very i
 
 ### 1.2 Training and Learning Functions
 
--Training function: update the parameters of LGNN and design it for the physical system to test for the effectivness in demonstrating and graphing dynamics
+-Training function: update the parameters of LGNN and design it for the physical system to test for the effectivness in demonstrating and graphing dynamics. 
 Firstly, it initializes the neural network's parameters, often leveraging specific graph-based architectures to represent dynamic systems. Then, it employs iterative processes, executing forward passes to predict system dynamics while adjusting parameters through backpropagation.
 During training, the model optimizes its performance by minimizing a defined loss function, which quantifies the disparity between predicted and actual system behaviors. This process involves fine-tuning the network's weights and biases to enhance its ability to accurately simulate and mimic the dynamics of the targeted complex systems.
 
