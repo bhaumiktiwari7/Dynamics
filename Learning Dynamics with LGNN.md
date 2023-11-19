@@ -8,9 +8,9 @@ Colab Link: https://colab.research.google.com/drive/1rErUFvWDCJAXMhRg4RABXACigZw
 
     1.1 [Summary of the Paper](#11-Summary-of-the-paper)
  
-    1.2 [Training & Learning Functions](#12-Training-and-Learning-Function)
+    1.2 [Training & Learning Functions](#12-Training-and-Learning-Functions)
   
-    1.3 [Examples of LGNN Implementation & Outputs](#13-Examples-of-LGNN-Implementation-&-Outputs) **Visualizations**
+    1.3 [Examples of LGNN Implementation & Outputs](#13-Example-of-LGNN-Implementation-&-Outputs) **Visualizations**
   
     1.4 [Inputs & Outputs of the Code](#14-Inputs-&-Outputs-of-the-Code)
   
