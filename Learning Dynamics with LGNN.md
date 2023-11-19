@@ -6,11 +6,11 @@ Colab Link: https://colab.research.google.com/drive/1rErUFvWDCJAXMhRg4RABXACigZw
 
 1. [Intro to Dynamics with Lagrangian Graph Neural Network](#1-intro-to-the-paper)
 
-    1.1 [Summary of the Paper](#11-Summary-of-the-paper)
+   1.1 [Summary of the Paper](#11-Summary-of-the-paper)
  
-    1.2 [Training & Learning Functions](#12-Training-and-Learning-Functions)
+   1.2 [Training & Learning Functions](#12-Training-and-Learning-Functions)
   
-    1.3 [Examples of LGNN Implementation & Outputs](#13-Example-of-LGNN-Implementation-and-Outputs) (** Example Code and Visualizations**)
+   1.3 [Examples of LGNN Implementation & Outputs](#13-Example-of-LGNN-Implementation-and-Outputs) (** Example Code and Visualizations**)
 
      1.3.1 [Implementing the Graph Based Neural Network Architecture](#131-Implementing-the-Graph-Based-Neural-Network-Architecture)
 
@@ -18,7 +18,7 @@ Colab Link: https://colab.research.google.com/drive/1rErUFvWDCJAXMhRg4RABXACigZw
 
      1.3.3 [Data Storage and Loading](#133-Data-Storage-and-Loading)
   
-    1.4 [Inputs & Outputs of the Code](#14-Inputs-and-Outputs-of-the-Code)
+   1.4 [Inputs & Outputs of the Code](#14-Inputs-and-Outputs-of-the-Code)
   
 -----
 
@@ -99,7 +99,15 @@ They go on to continue testing various segments using different constraints... i
 
 Gives different examples, specifically with drag force and how it applies to all nodes at equal pressure.
 
-This code aligns with the theoretical concepts of LGNN by implementing the graph structures and creating functions to include important features for the graph that can demonstrate the dynamics of the physical systems.
+Provided numerous graphs that all show the correlation between time step and absolute/energy/rollout error. LGNN was only trained on 
+the "4-link chain and predicted on all the systems" this goes to show how LGNN is quite effective in its tasks and abilities. 
+
+LGNN was able to identify the percantage error and non zero terms in figure 13, graphs a & b, even though the mass matrix was relatively at 1%. 
+This can be seen in the below image as well. As shown in image, LGNN produces similar energy and rollout error while the time steps are connected. This helps show us that LGNN is very effecive at maintaining balance with its results and predictions, adding on to its positives.
+
+![Image](predictions_with_lgnn.png)
+
+This code aligns with the theoretical concepts of LGNN by implementing the graph structures and creating functions to include important features for the graph that can demonstrate the dynamics of the physical systems as shown in above image as well.
 
 A very important segment of this code is the function that helps create parameters to organize the code, "params", and "forward_pass" are examples of the functions that support and create parameters for the neural networks. These parameters are also trained and applied when we see the dynamics of the system being applied.
 
@@ -213,6 +221,20 @@ They analyze the effectiveness of LGNN on numerous models like the "4-link segme
 Regardless, the above shows that LGNN is able to effectively learn the system habits and performance.
 
 So, we see that if LGNN is trained on smaller systems like the 4-link systems it can, eventually, learn the same needed information for larger systems like 8-link and 16-link systems.
+
+Physical systems such as 8-link system, 10-link system, and tensegrity structure are used to visualize the physical systems and models that are already trained.
+These systems help show us the difference in the output/predictions between LGNN, GNS, LGN, and CLNN. As we can see, the LGNN results produce the least amount of energy and rollout error. This shows us that it is quite effective in reducing the errors it makes in simulations.
+
+![Image](Physical_system_simulation_results.png)
+
+The implementation involves structuring the neural network architecture around a graph representation. This graph captures the relationships among elements within a dynamic system, with nodes representing entities like particles or components, and edges encoding their interactions or dependencies.
+LGNN's framework involves encoding physical principles or system dynamics into the graph structure, incorporating elements such as 
+conservation laws, interactions, or constraints as graph attributes. During training, the model processes information across this graph, 
+iteratively updating node and edge features through message passing, aggregating information from neighboring nodes, and adjusting parameters to simulate system dynamics.
+By utilizing graph-based operations like graph convolutions or attention mechanisms, LGNN iteratively refines its understanding of 
+the system's behavior, capturing the temporal evolution and interactions among its components. This implementation facilitates the 
+network's ability to learn and predict complex system dynamics, enabling it to simulate and mimic the behaviors of intricate physical 
+systems.
 
 But, we see the constraints of LGNN play into affect when different sizes and bases are used. LGNN is still good at analyzing the system but it does still carry constraints due to its simple physical model.
 
@@ -425,34 +447,12 @@ They go on to continue testing various segments using different constraints... i
 
 Gives different examples, specifcally with drag force and how it applies to all nodes at equal pressure.
 
-Physical systems such as 8-link system, 10-link system, and tensegrity structure are used to visualize the physical systems and models that are already trained.
-These systems help show us the difference in the output/predictions between LGNN, GNS, LGN, and CLNN. As we can see, the LGNN results produce the least amount of energy and rollout error. This shows us that it is quite effective in reducing the errors it makes in simulations.
-
-![Image](Physical_system_simulation_results.png)
-
-The implementation involves structuring the neural network architecture around a graph representation. This graph captures the relationships among elements within a dynamic system, with nodes representing entities like particles or components, and edges encoding their interactions or dependencies.
-LGNN's framework involves encoding physical principles or system dynamics into the graph structure, incorporating elements such as 
-conservation laws, interactions, or constraints as graph attributes. During training, the model processes information across this graph, 
-iteratively updating node and edge features through message passing, aggregating information from neighboring nodes, and adjusting parameters to simulate system dynamics.
-By utilizing graph-based operations like graph convolutions or attention mechanisms, LGNN iteratively refines its understanding of 
-the system's behavior, capturing the temporal evolution and interactions among its components. This implementation facilitates the 
-network's ability to learn and predict complex system dynamics, enabling it to simulate and mimic the behaviors of intricate physical 
-systems.
-
 Different sizes are used for LGNN, in order to get the fully connected feed to apply to embedding and passing. Linear layer and hidden layer. In order to embed the nodes they often use Linear transformations which helps effectively integrate the nodes. 
 
 ![Image](mass_matrix_and_node_connection.png)
 
 The systems and networks are trained very specifically, where most often, 75% of the data is for training purposes while 25% is for 
 validating the data. 
-
-Provided numerous graphs that all show the correlation between time step and absolute/energy/rollout error. LGNN was only trained on 
-the "4-link chain and predicted on all the systems" this goes to show how LGNN is quite effective in its tasks and abilities. 
-
-LGNN was able to identify the percantage error and non zero terms in figure 13, graphs a & b, even though the mass matrix was relatively at 1%. 
-This can be seen in the below image as well. As shown in image, LGNN produces similar energy and rollout error while the time steps are connected. This helps show us that LGNN is very effecive at maintaining balance with its results and predictions, adding on to its positives.
-
-![Image](predictions_with_lgnn.png)
 
 Specifics for pages and continuation from first segment above
 
