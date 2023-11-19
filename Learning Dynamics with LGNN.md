@@ -479,8 +479,11 @@ which can work past constraints and errors.
 Characteristics produced from inputs that are in the output:
 
 -Nodes
+
 -Edges
+
 -System-Level information
+
 -Interactions between the nodes and edges
 
 The output graphs will show all that we learned about the dynamics of the paper by incorporating the above information onto the graph helping us learn what is going on with the simulation.
