@@ -1,4 +1,4 @@
-# Dynamics with LGNN Paper
+# Dynamics with LGNN Paper(Including sample Visualizations and Code)
 
 Paper: https://arxiv.org/pdf/2209.11588.pdf
 
