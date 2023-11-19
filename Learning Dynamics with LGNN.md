@@ -2,6 +2,8 @@
 
 Content
 
+Colab Link: https://colab.research.google.com/drive/1rErUFvWDCJAXMhRg4RABXACigZw00vAi?usp=sharing
+
 1. [Intro to Dynamics with Lagrangian Graph Neural Network](#1-intro-to-the-paper)
 
     1.1 [Summary of the Paper](#11-Summary-of-the-paper)
