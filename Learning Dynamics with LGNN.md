@@ -62,7 +62,7 @@ During training, the model optimizes its performance by minimizing a defined los
 The main purpose is optimizing parameters to minimize a specific loss metric, often rooted in physics-based principles or system dynamics. This function aims to enhance the network's ability to accurately capture the behavior of the dynamic system under study.
 This function encompasses minimizing the difference between predicted and observed system states or properties, such as energy conservation or predictive accuracy. The learning function guides the network's adjustments during training, aligning its predictions closer to the actual behavior of the complex system being simulated.
 
-![Image](./Loss-Function Code.png)
+![Image](Loss_Function_Code.png)
 
 -How do they ensure the constraint is being satisfied: we check for this by seeing how the LGNN identifies the dynamics of the fluids or object by using methodologies of Lagrangian. 
 
