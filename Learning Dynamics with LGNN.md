@@ -58,7 +58,7 @@ During training, the model optimizes its performance by minimizing a defined los
 
 ![Image](objective_function.png)
 
--Learning/Objective function: include constraints and LGNN methodologies to foreshadow the behavior of the dynamics and how it would be on a grpah such as one with LGNN. 
+-Learning/Objective function: include constraints and LGNN methodologies to foreshadow the behavior of the dynamics and how it would be on a graph such as one with LGNN. 
 The main purpose is optimizing parameters to minimize a specific loss metric, often rooted in physics-based principles or system dynamics. This function aims to enhance the network's ability to accurately capture the behavior of the dynamic system under study.
 This function encompasses minimizing the difference between predicted and observed system states or properties, such as energy conservation or predictive accuracy. The learning function guides the network's adjustments during training, aligning its predictions closer to the actual behavior of the complex system being simulated.
 
@@ -170,12 +170,10 @@ def cal(params, graph, mpass=1):
     return graph
 ```
 
+The code above 
 
 
-
-
-
-It gives another example with a system and demonstrates its kinetic energy  to show the inertia that is put through the rigid segments. goes on to also address the potential energy of the system.
+The paper gives another example with a system and demonstrates its kinetic energy  to show the inertia that is put through the rigid segments. goes on to also address the potential energy of the system.
 
 Anyhow, LGNN is a very valuable neural network for computer visualization as it can understand most dynamics that are performed by the physical system, and this neural networks can simulate many applicable structures.
 
@@ -186,6 +184,64 @@ They go on to continue testing various segments using different constraints... i
 Gives different examples, specifcally with drag force and how it applies to all nodes at equal pressure.
 
 Physical systems such as 8-link system, 10-link system, and tensegrity structure are used to visualize the physical systems and models that are already trained.
+
+```python
+
+import pickle
+
+import jax.numpy as jnp
+
+
+def loadfile(filename, verbose=False):
+    if verbose:
+        print(f"Loading {filename}")
+    return pickle.load(open(filename, "rb"))
+
+
+def savefile(filename, data, metadata={}, verbose=False):
+    if verbose:
+        print(f"Saving {filename}")
+    pickle.dump((data, metadata), open(filename, "wb+"))
+
+
+def save_ovito(filename, traj, species=None, lattice=None, length=None, insert_origin=False):
+    """Save trajectory as ovito xyz file.
+
+    Args:
+        filename (string): File path.
+        traj (list of states): Trajectory.
+    """
+    print(f"Saving ovito file: {filename}")
+    with open(filename, "w+") as ofile:
+        for state in traj:
+            N, dim = state.position.shape
+            if species is None:
+                species = jnp.array([1]*N).reshape(-1, 1)
+            else:
+                species = jnp.array(species).reshape(-1, 1)
+
+            hinting = f"Properties=id:I:1:species:R:1:pos:R:{dim}:vel:R:{dim}:force:R:{dim}"
+            tmp = jnp.eye(dim).flatten()
+            if length is not None:
+                lattice = " ".join(
+                    [(f"{length}" if i != 0 else "0") for i in tmp])
+                Lattice = f'Lattice="{lattice}"'
+            if lattice is not None:
+                Lattice = f'Lattice="{lattice}"'
+            data = jnp.concatenate(
+                [species, state.position, state.velocity, state.force], axis=1)
+            if insert_origin:
+                N = N + 1
+                data = jnp.vstack([data, 0*data[1]])
+            str_ = f"{N}" + f"\n{Lattice} {hinting}" + f" Time={state.time}\n"
+            ofile.write(str_)
+            for j in range(N):
+                line = "\t".join([str(item) for item in data[j, :]])
+                str_ = f"{j+1}\t" + line + "\n"
+                ofile.write(str_)
+```
+
+The code above shows us 
 
 These systems help show us the difference in the output/predictions between LGNN, GNS, LGN, and CLNN. As we can see, the LGNN results produce the least amount of energy and rollout error. This shows us that it is quite effective in reducing the errors it makes in simulations.
 
