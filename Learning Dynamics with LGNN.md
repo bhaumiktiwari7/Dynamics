@@ -11,6 +11,9 @@ Colab Link: https://colab.research.google.com/drive/1rErUFvWDCJAXMhRg4RABXACigZw
     1.2 [Training & Learning Functions](#12-Training-and-Learning-Functions)
   
     1.3 [Examples of LGNN Implementation & Outputs](#13-Example-of-LGNN-Implementation-and-Outputs) (** Example Code and Visualizations**)
+           1.3.1 [Implementing the Graph Based Neural Network Architecture](#131-Implementing-the-Graph-Based-Neural-Network-Architecture)
+           1.3.2 [Initializing and Training Neural Models](#132-Initializing-and-Training-Neural-Models)
+           1.3.3 [Data Storage and Loading](#133-Data-Storage-and-Loading)
   
     1.4 [Inputs & Outputs of the Code](#14-Inputs-and-Outputs-of-the-Code)
   
@@ -75,8 +78,9 @@ This function encompasses minimizing the difference between predicted and observ
 
 ### 1.3 Example of LGNN Implementation and Outputs
 
+### 1.3a Implementing the Graph Based Neural Network Architecture
 
-The code below represents the architechture that is being designed to represent and reflect the dynamics of the physical systems. It helps introduce the concept of LGNN and how this neural network can support in demonstrating dyanmics of the physcial systems.
+The code below represents the architecture that is being designed to represent and reflect the dynamics of the physical systems. It helps introduce the concept of LGNN and how this neural network can support in demonstrating dyanmics of the physcial systems.
 
 Firstly, the code below introduces the main purpose of what LGNN does, using graph based approach to show the dynamics of the systems. It does this with the "GraphEncodeNet" class which inputs in a graph and helps create a structure to show and reflect the dyanmics of the systems.
 
@@ -84,20 +88,20 @@ Then, we see that throughout the paper LGNN are supposed to learn to embed diffe
 
 it gives another example with a system and demonstrates its kenetic energy to show the inertia that is put through the rigid segments. goes on to also address the potential energy of the system.
 
-Anyhow, LGNN is a very valuable neural network for computer visualization as it can understand most dynamics that are performed by the physical system, and this neural networks can simulate many applicable structures.
+Anyhow, LGNN is a very valuable neural network for computer visualization as it can understand most dynamics that are performed by the physical system, and this neural network can simulate many applicable structures.
 
-Also, on the above note, this neural networks might be well adversed to fluid dynamics as its structure works to analyze dyanmic movements.
+Also, on the above note, this neural network might be well advised to fluid dynamics as its structure works to analyze dynamic movements.
 
 They go on to continue testing various segments using different constraints... ie. (complex system example paragraph.)
 
-Gives different examples, specifcally with drag force and how it applies to all nodes at equal pressure.
+Gives different examples, specifically with drag force and how it applies to all nodes at equal pressure.
 
-This code alligns with the theoretical concepts of LGNN by implementing the graph structures and creating functions to include important features for the graph that can demonstrate the dynamics of the physical systems.
+This code aligns with the theoretical concepts of LGNN by implementing the graph structures and creating functions to include important features for the graph that can demonstrate the dynamics of the physical systems.
 
-A very important segment of this code is the function that helps create parameters to organize the code, "params", and "forward_pass" are the examples of the functions that support and create parameters for the neural networks. These parameters are also trained and applied when we see the dynamics of the system being applied.
-
+A very important segment of this code is the function that helps create parameters to organize the code, "params", and "forward_pass" are examples of the functions that support and create parameters for the neural networks. These parameters are also trained and applied when we see the dynamics of the system being applied.
 
 ```python
+
 from functools import partial
 
 import jax
@@ -191,6 +195,160 @@ def cal(params, graph, mpass=1):
     return graph
 ```
 
+### 1.3b Initializing and Training Neural Models
+
+The below code represents the neural model's file, which includes all functions that help train and initialize the neural network models. It especially shows how we can work with and build neural network models that relate to problems for physical related equations/questions. It models the dynamics of the physical systems and helps show how neural networks can be represented.
+
+First, the code initilizes the Multi layer perceptron, which introduces and genrates the biases of the layers and its sizes. It does this via gaussian methods.
+
+Then, we see that there are two functions activated, SqaurePlus and ReLU, which are used in neural networks to show constraints.
+
+The code also includes two loss functions, MSE and L2error, which measure the difference between the actual and predicted values.
+
+They analyze the effectiveness of LGNN on numerous models like the "4-link segment, 8- link segment & 16-link segment". When looking at rollout energy and energy violation LGNN was able to detect in the 4-link segment but, not on the 8-link or 16-link segment.
+
+Regardless, the above shows that LGNN is able to effectively learn the system habits and performance.
+
+So, we see that if LGNN is trained on smaller systems like the 4-link systems it can, eventually, learn the same needed information for larger systems like 8-link and 16-link systems.
+
+But, we see the constraints of LGNN play into affect when different sizes and bases are used. LGNN is still good at analyzing the system but it does still carry constraints due to its simple physical model.
+
+Lagrangian graph Neural Networks is very universal as it is able to learn very interesting facts about the system like its size, data capacity, and overall structure. It does this by being trained on con-current systems, and it continues to learn about physical systems.
+
+Based on the overall background of the paper, we see that this code is very relevant in building and training the neural network models, especially MLP's(Multi-Layer Perceptron), where we see how these neural networks can possibly predict the dynamics of the physical systems.
+
+```python
+from functools import partial
+
+import jax
+import jax.numpy as jnp
+from jax import lax, random, vmap
+
+
+
+def initialize_mlp(sizes, key, affine=[False], scale=1.0):
+    """ Initialize the weights of all layers of a linear layer network """
+    keys = random.split(key, len(sizes))
+    # Initialize a single layer with Gaussian weights -  helper function
+    if len(affine) != len(sizes):
+        affine = [affine[0]]*len(sizes)
+    affine[-1] = True
+
+    def initialize_layer(m, n, key, affine=True, scale=1e-2):
+        w_key, b_key = random.split(key)
+        if affine:
+            return scale * random.normal(w_key, (n, m)), 0 * random.normal(b_key, (n,))
+        else:
+            return scale * random.normal(w_key, (n, m)), scale * random.normal(b_key, (n,))
+    return [initialize_layer(m, n, k, affine=a, scale=scale) for m, n, k, a in zip(sizes[:-1], sizes[1:], keys, affine)]
+
+
+def SquarePlus(x):
+    return lax.mul(0.5, lax.add(x, lax.sqrt(lax.add(lax.square(x), 4.))))
+
+
+def ReLU(x):
+    """ Rectified Linear Unit (ReLU) activation function """
+    return jnp.maximum(0, x)
+
+
+def layer(params, x):
+    """ Simple ReLu layer for single sample """
+    return jnp.dot(params[0], x) + params[1]
+
+
+def forward_pass(params, x, activation_fn=SquarePlus):
+    """ Compute the forward pass for each example individually """
+    h = x
+
+    # Loop over the ReLU hidden layers
+    for p in params[:-1]:
+        h = activation_fn(layer(p, h))
+
+    # Perform final traformation
+    p = params[-1]
+    h = layer(p, h)
+    return h
+
+# Make a batched version of the `predict` function
+
+
+def batch_forward(params, x, activation_fn=SquarePlus):
+    return vmap(partial(forward_pass, activation_fn=activation_fn), in_axes=(None, 0), out_axes=0)(params, x)
+
+
+def MSE(y_act, y_pred):
+    return jnp.mean(jnp.square(y_pred - y_act))
+
+
+def L2error(y_act, y_pred):
+    return jnp.mean(jnp.square(y_pred - y_act))
+
+
+def L1error(y_act, y_pred):
+    return jnp.mean(jnp.abs(y_pred - y_act))
+
+
+def batch_MSE(ys_act, ys_pred):
+    return vmap(MSE, in_axes=(0, 0), out_axes=0)(ys_act, ys_pred)
+
+
+def loadmodel(filename):
+    model, metadata = loadfile(filename)
+    if "multimodel" in metadata:
+        params = {k: _makedictmodel(v) for k, v in model.items()}
+    else:
+        params = _makedictmodel(model)
+    return params, metadata
+
+
+def _makedictmodel(model):
+    params = []
+    for ind in range(len(model)):
+        layer = model[f'layer_{ind}']
+        w, b = layer["w"], layer["b"]
+        params += [(w, b)]
+    return params
+
+
+def savemodel(filename, params, metadata={}):
+    if type(params) is type({}):
+        m = {k: _makemodeldict(v) for k, v in params.items()}
+        metadata = {**metadata, "multimodel": True}
+    else:
+        m = _makemodeldict(params)
+    savefile(filename, m, metadata=metadata)
+
+
+def _makemodeldict(params):
+    m = {}
+    for ind, layer in enumerate(params):
+        w, b = layer
+        w_, b_ = jnp.array(w), jnp.array(b)
+        m[f'layer_{ind}'] = {'w': w_, 'b': b_}
+    return m
+
+
+def _pprint_model(params, indent=""):
+    for ind, layer in enumerate(params):
+        w, b = layer
+        print(
+            f"{indent}#Layer {ind}: W ({w.shape}), b({b.shape}),  {w.shape[1]} --> {w.shape[0]}")
+
+
+def pprint_model(params, Iindent=""):
+    if type(params) != type({}):
+        _pprint_model(params, indent=Iindent)
+    else:
+        for key, value in params.items():
+            print(Iindent + ">" + key)
+            indent = Iindent + "-"
+            pprint_model(value, Iindent=indent)
+
+```
+
+### 1.3c Data Storage and Loading
+
 The paper gives another example with a system and demonstrates its kinetic energy  to show the inertia that is put through the rigid segments. goes on to also address the potential energy of the system.
 
 Anyhow, LGNN is a very valuable neural network for computer visualization as it can understand most dynamics that are performed by the physical system, and this neural networks can simulate many applicable structures.
@@ -203,9 +361,10 @@ Gives different examples, specifcally with drag force and how it applies to all 
 
 Physical systems such as 8-link system, 10-link system, and tensegrity structure are used to visualize the physical systems and models that are already trained.
 
+----
 The code below refers to two functions, the loadfile and savefile. The loadfile function reads data from a specificed file, whereas the savefile function saves that date with the metadata for the file.
 
-The primary function of this code is to effectively story and host data for the molecular dynamics trajectory data which is currently in file format, hence the need for these functions which can read the files.
+The primary function of this code is to effectively store and host data for the molecular dynamics trajectory data which is currently in file format, hence the need for these functions which can read the files.
 
 These functions are very effective at visulizing the molecular dynamics of the systems and simulations especially in Ovito which is what the file format is in. The functions help show information about how many particles, positions, forces, and velocities are present in the system.
 
@@ -314,12 +473,31 @@ which can work past constraints and errors.
 
 ### 1.4 Inputs and Outputs of the Code
 
+Characteristics produced from inputs that are in the output:
+
+-Nodes
+-Edges
+-System-Level information
+-Interactions between the nodes and edges
+
+The output graphs will show all that we learned about the dynamics of the paper by incorporating the above information onto the graph helping us learn what is going on with the simulation.
+
 Inputs:
 
-One input is the graphs which are incorporated into the code which show and represent the nodes, edges, and other attributes like system information. 
+-One input is the graphs which are incorporated into the code which show only the fundamental concept of the physical system with no additional attributes.
 
-Another input could be the model parameters, "params" which has a bunch of different parametrs to help embed the nodes, and these parameters are learned during the training stage. 
+The graphs are the representation of the systems and basically how the data is shown to begin with. It is very relevent and important as it connects with the papers overall topic of using the graphs to model physical systems.
+
+-Another input could be the model parameters, "params" which has a bunch of different parametrs to help embed the nodes, and these parameters are learned during the training stage.
+
+All the parameters are organized in a dictionary and they are very important for the function of the neural network. In the paper, they emphasize that parametrization includes much learning which goes on to capture the dynamics and simulation of the system. The code helps us do this by assigning the parmeters to learn from the data and improve the outputs on the graph and improve the prediction power.
 
 Outputs:
 
-The graphs with the attributes and characteristics. There are neural network architectures included in the code which will generate the graph with the nodes and edges as mentioned in inputs, which are all produces after training. 
+-The output is the modified graphs with the nodes, edges, and system information.
+
+There is a new graph that is produced which has the attributes like the edges and nodes incorporated into it, and these graphs represent the behavior of the system. This connects back to the papers overall topic of incorporating attributes into the LGNN graphs to identify the behavior and simulation of the system.
+
+It helps show the way that LGNN is used, like in the paper, basically producing graph models to represent the physcial systems. The paper also emphasizes the need to embed attributes to the graph to best learn what is being simulated, the paper does this by capturing the important features of the systems dynamics to show the LGNN.
+
+This connects back to the paper completely as it shows the inputs and outputs as dicussed with the use of LGNN. Especially by demonstrating the input of a graph with no attributes and then outputting a graph with attributes like edges and nodes to demonstrate what is happening with the physical system.
