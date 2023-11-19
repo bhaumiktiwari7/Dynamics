@@ -83,7 +83,9 @@ They go on to continue testing various segments using different constraints... i
 
 Gives different examples, specifcally with drag force and how it applies to all nodes at equal pressure.
 
-Physical systems such as 8-link system, 10-link system, and tensegrity structure are using to visualize the physical systems and models that are already trained.
+Physical systems such as 8-link system, 10-link system, and tensegrity structure are used to visualize the physical systems and models that are already trained.
+
+These systems help show us the difference in the output/predictions between LGNN, GNS, LGN, and CLNN. As we can see, the LGNN results produce the least amount of energy and rollout error. This shows us that it is quite effective in reducing the errors it makes in simulations.
 
 ![Image](Physical_system_simulation_results.png)
 
@@ -98,7 +100,7 @@ systems.
 
 Different sizes are used for LGNN, in order to get the fully connected feed to apply to embedding and passing. Linear layer and hidden layer. In order to embed the nodes they often use Linear transformations which helps effectively integrate the nodes. 
 
-![Image](predictions_with_lgnn.png)
+![Image](mass_matrix_and_node_connection.png)
 
 The systems and networks are trained very specifically, where most often, 75% of the data is for training purposes while 25% is for 
 validating the data. 
@@ -107,9 +109,9 @@ Provided numerous graphs that all show the correlation between time step and abs
 the "4-link chain and predicted on all the systems" this goes to show how LGNN is quite effective in its tasks and abilities. 
 
 LGNN was able to identify the percantage error and non zero terms in figure 13, graphs a & b, even though the mass matrix was relatively at 1%. 
-This can be seen in below image as well.
+This can be seen in the below image as well.
 
-![Image](mass_matrix_and_node_connection.png)
+![Image](predictions_with_lgnn.png)
 
 Specifics for pages and continuation from first segment above
 
