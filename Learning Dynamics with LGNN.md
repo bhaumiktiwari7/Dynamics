@@ -473,7 +473,7 @@ compelx equations, which however, come with this own errors and constraints that
 To this end, the LGNN is very useful in understanding and comparing the dynamics of complex systems that require neural networks 
 which can work past constraints and errors. 
 
-### 1.4 Inputs and Outputs of the Code
+### 3. Inputs and Outputs of the Code
 
 Characteristics produced from inputs that are in the output:
 
