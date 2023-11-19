@@ -88,30 +88,46 @@ Physical systems such as 8-link system, 10-link system, and tensegrity structure
 ![Image](./Physical-system-simulation-results.png)
 
 The implementation involves structuring the neural network architecture around a graph representation. This graph captures the relationships among elements within a dynamic system, with nodes representing entities like particles or components, and edges encoding their interactions or dependencies.
-LGNN's framework involves encoding physical principles or system dynamics into the graph structure, incorporating elements such as conservation laws, interactions, or constraints as graph attributes. During training, the model processes information across this graph, iteratively updating node and edge features through message passing, aggregating information from neighboring nodes, and adjusting parameters to simulate system dynamics.
-By utilizing graph-based operations like graph convolutions or attention mechanisms, LGNN iteratively refines its understanding of the system's behavior, capturing the temporal evolution and interactions among its components. This implementation facilitates the network's ability to learn and predict complex system dynamics, enabling it to simulate and mimic the behaviors of intricate physical systems.
+LGNN's framework involves encoding physical principles or system dynamics into the graph structure, incorporating elements such as 
+conservation laws, interactions, or constraints as graph attributes. During training, the model processes information across this graph, 
+iteratively updating node and edge features through message passing, aggregating information from neighboring nodes, and adjusting parameters to simulate system dynamics.
+By utilizing graph-based operations like graph convolutions or attention mechanisms, LGNN iteratively refines its understanding of 
+the system's behavior, capturing the temporal evolution and interactions among its components. This implementation facilitates the 
+network's ability to learn and predict complex system dynamics, enabling it to simulate and mimic the behaviors of intricate physical 
+systems.
 
 Different sizes are used for LGNN, in order to get the fully connected feed to apply to embedding and passing. Linear layer and hidden layer. In order to embed the nodes they often use Linear transformations which helps effectively integrate the nodes. 
+![Image](./predictions-with-LGNN.png)
 
-The systems and networks are trained very specifically, where most often, 75% of the data is for training purposes while 25% is for validating the data. 
+The systems and networks are trained very specifically, where most often, 75% of the data is for training purposes while 25% is for 
+validating the data. 
 
-Provided numerous graphs that all show the correlation between time step and absolute/energy/rollout error. LGNN was only trained on the "4-link chain and predicted on all the systems" this goes to show how LGNN is quite effective in its tasks and abilities. 
+Provided numerous graphs that all show the correlation between time step and absolute/energy/rollout error. LGNN was only trained on 
+the "4-link chain and predicted on all the systems" this goes to show how LGNN is quite effective in its tasks and abilities. 
 
 LGNN was able to identify the percantage error and non zero terms in figure 13, graphs a & b, even though the mass matrix was relatively at 1%. 
+This can be seen in below image as well.
 
-
+![Image](./mass-matrix-and-node-connection.png)
 
 Specifics for pages and continuation from first segment above
 
-In paragraph 2, we can see the dynamics of physical systems and how Lagrangian graph Neural Networks goes in depth to work with them. It shows how the systems move and also shows its correlation to equations that can represent such movements.
+In paragraph 2, we can see the dynamics of physical systems and how Lagrangian graph Neural Networks goes in depth to work with them. 
+It shows how the systems move and also shows its correlation to equations that can represent such movements.
 
-In order to show the objects change in position and velocity LGNN uses energy and force based methods to articulate the such needed info on position and velocity. To represent above, Lagrangian is an example of energy based method. It helps significantly when we are analyzing the systems current position and how the systems develop over time. 
+In order to show the objects change in position and velocity LGNN uses energy and force based methods to articulate the such needed 
+info on position and velocity. To represent above, Lagrangian is an example of energy based method. It helps significantly when we are analyzing the systems current position and how the systems develop over time. 
+We can see an example of this below. 
 
-LGNN can also help create equations that related to position, velocity, motion and more to help show the development of the physical systems over time.
+![Image](./energy-testing-with-graphs.png)
 
-force based methods are also used as a part of LGNN which analyzes how objects can move and how such systems can be shown via compelx equations, which however, come with this own errors and constraints that LGNN is good at overcoming and looking past.
+LGNN can also help create equations that related to position, velocity, motion and more to help show the development of the
+physical systems over time.
+force based methods are also used as a part of LGNN which analyzes how objects can move and how such systems can be shown via 
+compelx equations, which however, come with this own errors and constraints that LGNN is good at overcoming and looking past.
 
-To this end, the LGNN is very useful in understanding and comparing the dynamics of complex systems that require neural networks which can work past constraints and errors. 
+To this end, the LGNN is very useful in understanding and comparing the dynamics of complex systems that require neural networks 
+which can work past constraints and errors. 
 
 ### 1.4 Inputs & Outputs of the Code
 
