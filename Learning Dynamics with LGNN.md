@@ -1,8 +1,9 @@
 # Dynamics with LGNN Paper
 
-Content
+Paper: https://arxiv.org/pdf/2209.11588.pdf
+Code: https://github.com/M3RG-IITD/rigid_body_dynamics_graph.git
 
-Colab Link: https://colab.research.google.com/drive/1rErUFvWDCJAXMhRg4RABXACigZw00vAi?usp=sharing
+Content
 
 1. [Intro to Dynamics with Lagrangian Graph Neural Network](#1-intro-to-the-paper)
 
@@ -503,3 +504,6 @@ There is a new graph that is produced which has the attributes like the edges an
 It helps show the way that LGNN is used, like in the paper, basically producing graph models to represent the physcial systems. The paper also emphasizes the need to embed attributes to the graph to best learn what is being simulated, the paper does this by capturing the important features of the systems dynamics to show the LGNN.
 
 This connects back to the paper completely as it shows the inputs and outputs as dicussed with the use of LGNN. Especially by demonstrating the input of a graph with no attributes and then outputting a graph with attributes like edges and nodes to demonstrate what is happening with the physical system.
+
+
+Colab Link: https://colab.research.google.com/drive/1rErUFvWDCJAXMhRg4RABXACigZw00vAi?usp=sharing
