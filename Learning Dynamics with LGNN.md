@@ -49,17 +49,6 @@ However the equations that help also show Lagrangian graph Neural Networks can h
 
 Lagrangian graph Neural Networks works to create graphs to represent the physcial systems, which as compared to other neural netowrks is significantly different.
 
-They analyze the effectiveness of LGNN on numerous models like the "4-link segment, 8- link segment & 16-link segment". When looking at rollout energy and energy violation LGNN was able to detect in the 4-link segment but, not on the 8-link or 16-link segment. 
-
-Regardless, the above shows that LGNN is able to effectively learn the system habits and performance.
-
-So, we see that if LGNN is trained on smaller systems like the 4-link systems it can, eventually, learn the same needed information for larger systems like 8-link and 16-link systems.
-
-But, we see the constraints of LGNN play into affect when different sizes and bases are used. LGNN is still good at analyzing the system but it does still carry constraints due to its simple physical model.
-
-Lagrangian graph Neural Networks is very universal as it is able to learn very interesting facts about the system like its size, data capacity, and overall structure. It does this by being trained on con-current systems, and it continues to learn about physical systems.
-
-
 ### 1.2 Training and Learning Functions
 
 -Training function: update the parameters of LGNN and design it for the physical system to test for the effectivness in demonstrating and graphing dynamics. 
@@ -92,6 +81,16 @@ Firstly, the code below introduces the main purpose of what LGNN does, using gra
 Then, we see that throughout the paper LGNN are supposed to learn to embed different elements of the systems like sharp edges, nodes, etc. The code works to accomplish this by having an "embedding_fn" function, which aims to include different needed portions of the graph.
 
 it gives another example with a system and demonstrates its kenetic energy to show the inertia that is put through the rigid segments. goes on to also address the potential energy of the system.
+
+They analyze the effectiveness of LGNN on numerous models like the "4-link segment, 8- link segment & 16-link segment". When looking at rollout energy and energy violation LGNN was able to detect in the 4-link segment but, not on the 8-link or 16-link segment. 
+
+Regardless, the above shows that LGNN is able to effectively learn the system habits and performance.
+
+So, we see that if LGNN is trained on smaller systems like the 4-link systems it can, eventually, learn the same needed information for larger systems like 8-link and 16-link systems.
+
+But, we see the constraints of LGNN play into affect when different sizes and bases are used. LGNN is still good at analyzing the system but it does still carry constraints due to its simple physical model.
+
+Lagrangian graph Neural Networks is very universal as it is able to learn very interesting facts about the system like its size, data capacity, and overall structure. It does this by being trained on con-current systems, and it continues to learn about physical systems.
 
 Anyhow, LGNN is a very valuable neural network for computer visualization as it can understand most dynamics that are performed by the physical system, and this neural network can simulate many applicable structures.
 
@@ -505,6 +504,5 @@ There is a new graph that is produced which has the attributes like the edges an
 It helps show the way that LGNN is used, like in the paper, basically producing graph models to represent the physcial systems. The paper also emphasizes the need to embed attributes to the graph to best learn what is being simulated, the paper does this by capturing the important features of the systems dynamics to show the LGNN.
 
 This connects back to the paper completely as it shows the inputs and outputs as dicussed with the use of LGNN. Especially by demonstrating the input of a graph with no attributes and then outputting a graph with attributes like edges and nodes to demonstrate what is happening with the physical system.
-
 
 Colab Link: https://colab.research.google.com/drive/1rErUFvWDCJAXMhRg4RABXACigZw00vAi?usp=sharing
