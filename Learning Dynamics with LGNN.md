@@ -35,7 +35,7 @@ can measure energy violation and more predictions. LGNN does comparatively bette
 than the other models in terms of mimicking 
 the dynamics of the physical system and it is able to simulate more complex systems 
 even with simpler models. 
-In these comparisons, LGNN showcases superior capabilities in mimicking the intricate 
+In these comparisons, LGNN shows superior capabilities in mimicking the intricate 
 dynamics of physical systems when compared to alternative models. What sets LGNN apart is its aptitude for handling complex systems, even with relatively simpler models, exhibiting a remarkable ability to accurately simulate their behaviors. Overall, the research investigates LGNN's impact in mimicking the dynamics of complex systems, emphasizing its comparative advantages over existing models.
 
 
