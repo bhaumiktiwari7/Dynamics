@@ -496,10 +496,11 @@ The graphs are the representation of the systems and basically how the data is s
 
 -Another input could be the model parameters, "params" which has a bunch of different parametrs to help embed the nodes, and these parameters are learned during the training stage.
 
-All the parameters are organized in a dictionary and they are very important for the function of the neural network. In the paper, they emphasize that parametrization includes much learning which goes on to capture the dynamics and simulation of the system. The code helps us do this by assigning the parmeters to learn from the data and improve the outputs on the graph and improve the prediction power.
 
+The below image represents the numerous inputs for the graph. These inputs are serving as paramaters which will be tested. All the parameters are organized in a dictionary and they are very important for the function of the neural network. In the paper, they emphasize that parametrization includes much learning which goes on to capture the dynamics and simulation of the system. The code and below images helps us do this by assigning the parmeters to learn from the data and improve the outputs on the graph and improve the prediction power.
 
 ![Image](input.png)
+
 
 
 Outputs:
