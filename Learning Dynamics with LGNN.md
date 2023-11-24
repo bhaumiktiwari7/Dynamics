@@ -498,7 +498,14 @@ The graphs are the representation of the systems and basically how the data is s
 
 All the parameters are organized in a dictionary and they are very important for the function of the neural network. In the paper, they emphasize that parametrization includes much learning which goes on to capture the dynamics and simulation of the system. The code helps us do this by assigning the parmeters to learn from the data and improve the outputs on the graph and improve the prediction power.
 
+
+![Image](input.png)
+
+
 Outputs:
+
+
+![Image](new_output.png)
 
 -The output is the modified graphs with the nodes, edges, and system information.
 
@@ -507,5 +514,7 @@ There is a new graph that is produced which has the attributes like the edges an
 It helps show the way that LGNN is used, like in the paper, basically producing graph models to represent the physcial systems. The paper also emphasizes the need to embed attributes to the graph to best learn what is being simulated, the paper does this by capturing the important features of the systems dynamics to show the LGNN.
 
 This connects back to the paper completely as it shows the inputs and outputs as dicussed with the use of LGNN. Especially by demonstrating the input of a graph with no attributes and then outputting a graph with attributes like edges and nodes to demonstrate what is happening with the physical system.
+
+----
 
 Colab Link: https://colab.research.google.com/drive/1rErUFvWDCJAXMhRg4RABXACigZw00vAi?usp=sharing
