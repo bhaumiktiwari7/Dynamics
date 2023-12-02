@@ -516,6 +516,14 @@ It helps show the way that LGNN is used, like in the paper, basically producing 
 
 This connects back to the paper completely as it shows the inputs and outputs as dicussed with the use of LGNN. Especially by demonstrating the input of a graph with no attributes and then outputting a graph with attributes like edges and nodes to demonstrate what is happening with the physical system.
 
+
+Input:
+
+Let's look at the below input/chain structure used to train the LGNN graphs
+![Image](input_sample_2.png)
+
+
+
 ----
 
 Colab Link: https://colab.research.google.com/drive/1rErUFvWDCJAXMhRg4RABXACigZw00vAi?usp=sharing
