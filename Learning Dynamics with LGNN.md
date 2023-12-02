@@ -522,6 +522,31 @@ Input:
 Let's look at the below input/chain structure used to train the LGNN graphs
 ![Image](input_sample_2.png)
 
+We are given the topologies of the chains and see that the 4-link system(a) is used to train the LGNN graph and all other systems. 
+Each node on the line/chain can be given a coordinate, as below. 
+
+(A)
+```
+A = [0, 0]
+B = [1, -1]
+C = [2, -2]
+D = [3,-3]
+E  = [4, -4]
+F = [5, -5]
+G = [6, -6]
+H = [7, -7]
+I = [8, -8]
+J = [9, -9]
+K = [10, -10]
+L = [11, -11]
+M = [12, -12]
+N = [13, -12]
+O = [14, -13]
+P = [15, -13]
+
+```
+
+As we can see above the chain is almost linear until the 
 
 
 ----
