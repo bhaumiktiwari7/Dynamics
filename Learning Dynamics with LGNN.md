@@ -546,7 +546,13 @@ P = [15, -13]
 
 ```
 
-As we can see above the chain is almost linear until the 
+As we can see above the chain is almost linear until the Point M & N. 
+
+After we read the chain from the files it will be in following order:
+
+```
+nodes = [A, B, C, D, E, F, G, H, I, A, A, A, A, A, A, A, A, A, A, ]
+```
 
 
 ----
